@@ -40,3 +40,26 @@ Tuy nhiên trong ***multi-label classification***, có nhiều possible labels t
 Ví dụ như trong hình ảnh này, cat và bird được nhận dạng trong ảnh, và ta thấy classification model cho phép nhiều labels trong kết quả.\
 ![alt text](image.png)\
 Nói chung, chọn model là bước quan trọng trong quá trình làm bài toán Machine Learning. Một model phù hợp với câu hỏi của bạn là rất quan trọng. Khi chọn model phù hợp và chính xác, ta sẽ có thể tháy các kết quả có ý nghĩa và thú vị.
+
+## LINEAR REGRESSION
+Mục đích của ML thường là tạo model mà giải thích được real-world data và chúng ta có thể dự đoán điều gì có thể xảy ra với các inputs khác nhau.\
+Model đơn giản nhất chúng ta có thể đưa ra là một đường thẳng. Khi chúng ta tìm được 1 đường line mà tập hợp data một cách tốt nhất, đó là khi chúng ta đang làm ***Linear Regression***.\
+Ví dụ như chúng ta có một tập hợp các data points plot cân nặng và chiều cao của các VĐV bóng chày chuyên nghiệp\
+![alt text](image-1.png)\
+Một linear model giúp predict data:\
+![alt text](image-2.png)\
+Một line model sẽ được định nghĩa dựa trên *slope* và *intercept*, cho từng điểm `y`: `y = mx + b`\
+trong đó m là *slope*, b là *intercept*.\
+Khi chúng ta thực hiện ***Linear Regression***, mục tiêu là sẽ tìm best `b` và `m` cho data của chúng ta. Tuy vậy với từng data point, chúng ta tính toán *loss*, nhằm tính việc model dự đoán tệ như nào. Việc tổng loss các data points càng nhỏ sẽ tương đương model predict càng tốt.\
+Trong Python, ta sử dụng **LinearRegression** trong **sklearn**
+```
+from sklearn.linear_model import LinearRegression
+
+line_fitter = LinearRegression()
+line_fitter.fit(X, y)
+
+y_predicted = line_fitter.predict(X)
+```
+***Note:***
+- `line_fitter.coef_` trả ra *slope*
+- `line_fitter.intercept_` trả ra *intercept*
